@@ -9,12 +9,10 @@
   "dependencies": {
     "coffee-calc": "^0.0.3",
     "css-reset-plus": "latest",
-    "error-boundary-react": "latest",
     "get-classnames": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "rype": "^2.0.1",
-    "use-react-api": "latest"
+    "rype": "^2.0.1"
   },
   "devDependencies": {
     "@honkhonk/vite-plugin-svgr": "latest",
