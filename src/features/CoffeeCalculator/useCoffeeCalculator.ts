@@ -29,14 +29,14 @@ export default function useCoffeeCalculator() {
   }, [ratio])
 
   function updateAmount(type: keyof typeof calculator, by: number) {
-    const result = calculator[type](by || 0)
+    const result = calculator[type](by)
     setAmount(result)
   }
 
   function updateRatio(type: keyof typeof ratio, by: number | boolean) {
     setRatio((prev) => ({
       ...prev,
-      [type]: typeof by === 'number' ? calculator[type](by || 0) : by,
+      [type]: typeof by === 'number' ? by : by,
     }))
   }
 
