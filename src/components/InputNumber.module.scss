@@ -1,0 +1,40 @@
+.container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto 1fr auto;
+}
+
+.input,
+.control {
+  border-radius: 0;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1.5rem;
+}
+
+.input {
+  font-weight: 500;
+  width: 100%;
+  height: 100%;
+  font-size: 1.6rem;
+  text-align: center;
+  outline: transparent;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.control {
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.bar {
+  width: 1.2rem;
+  height: 0.2rem;
+  background-color: black;
+}
+
+.right .bar:nth-child(2) {
+  position: absolute;
+  transform: rotate(90deg);
+}

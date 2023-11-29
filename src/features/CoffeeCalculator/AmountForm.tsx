@@ -1,65 +1,64 @@
+import InputNumber from '$components/InputNumber'
 import css from './AmountForm.module.scss'
+
+function toFixed(number: number) {
+  return +number.toFixed(3)
+}
 
 export default function AmountForm({ amount, updateAmount }) {
   return (
-    <div>
-      <div>
-        <label htmlFor="coffee">Coffee Amount</label>
-        <input
-          id="coffee"
-          type="number"
-          value={amount.coffee}
-          onChange={(e) => updateAmount('getByCoffee', e.target.valueAsNumber)}
+    <div className={css.content}>
+      <div className={css.item}>
+        <p>Coffee:</p>
+        <InputNumber
+          input={{ min: 0 }}
+          value={toFixed(amount.coffee)}
+          onChange={(value) => updateAmount('getByCoffee', value)}
         />
       </div>
 
-      <div>
-        <label htmlFor="sugar">Sugar Amount</label>
-        <input
-          id="sugar"
-          type="number"
-          value={amount.sugar}
-          onChange={(e) => updateAmount('getBySugar', e.target.valueAsNumber)}
+      <div className={css.item}>
+        <p>Sugar:</p>
+        <InputNumber
+          input={{ min: 0 }}
+          value={toFixed(amount.sugar)}
+          onChange={(value) => updateAmount('getBySugar', value)}
         />
       </div>
 
-      <div>
-        <label htmlFor="creamer">Creamer Amount</label>
-        <input
-          id="creamer"
-          type="number"
-          value={amount.creamer}
-          onChange={(e) => updateAmount('getByCreamer', e.target.valueAsNumber)}
+      <div className={css.item}>
+        <p>Creamer:</p>
+        <InputNumber
+          input={{ min: 0 }}
+          value={toFixed(amount.creamer)}
+          onChange={(value) => updateAmount('getByCreamer', value)}
         />
       </div>
 
-      <div>
-        <label htmlFor="water">Water Amount</label>
-        <input
-          id="water"
-          type="number"
-          value={amount.water}
-          onChange={(e) => updateAmount('getByWater', e.target.valueAsNumber)}
+      <div className={css.item}>
+        <p>Water:</p>
+        <InputNumber
+          input={{ min: 0 }}
+          value={toFixed(amount.water)}
+          onChange={(value) => updateAmount('getByWater', value)}
         />
       </div>
 
-      <div>
-        <label htmlFor="ingredients">Ingredients Amount</label>
-        <input
-          id="ingredients"
-          type="number"
-          value={amount.ingredients}
-          onChange={(e) => updateAmount('getByIngredients', e.target.valueAsNumber)}
+      <div className={css.item}>
+        <p>Ingredients:</p>
+        <InputNumber
+          input={{ min: 0 }}
+          value={toFixed(amount.ingredients)}
+          onChange={(value) => updateAmount('getByIngredients', value)}
         />
       </div>
 
-      <div>
-        <label htmlFor="total">Total Amount</label>
-        <input
-          id="total"
-          type="number"
-          value={amount.total}
-          onChange={(e) => updateAmount('getByTotal', e.target.valueAsNumber)}
+      <div className={css.item}>
+        <p>Total:</p>
+        <InputNumber
+          input={{ min: 0 }}
+          value={toFixed(amount.total)}
+          onChange={(value) => updateAmount('getByTotal', value)}
         />
       </div>
     </div>

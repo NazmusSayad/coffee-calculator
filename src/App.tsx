@@ -1,7 +1,14 @@
 import CoffeeCalculator from '$features/CoffeeCalculator'
+import { useState } from 'react'
 
 const App = () => {
-  return <CoffeeCalculator />
+  const [value, setValue] = useState(0)
+
+  return (
+    <>
+      <CoffeeCalculator />
+    </>
+  )
 }
 
 export default App

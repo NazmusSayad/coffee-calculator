@@ -5,10 +5,14 @@ import css from './index.module.scss'
 
 export default function index() {
   const calculator = useCoffeeCalculator()
-  console.log(calculator.amount)
 
   return (
-    <div>
+    <div
+      style={{
+        paddingInline: '5%',
+        paddingBlock: '2rem',
+      }}
+    >
       <RatioForm
         ratio={calculator.ratio}
         updateRatio={calculator.updateRatio}

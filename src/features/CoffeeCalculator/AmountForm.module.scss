@@ -1,0 +1,16 @@
+.content {
+  margin-top: 7rem;
+  display: grid;
+  gap: 1.5rem;
+  max-width: 115rem;
+  margin-inline: auto;
+}
+
+.item {
+  max-width: 40rem;
+  margin-inline: auto;
+
+  p {
+    font-weight: 500;
+  }
+}

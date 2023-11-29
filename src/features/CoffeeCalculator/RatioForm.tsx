@@ -1,48 +1,54 @@
+import InputNumber from '$components/InputNumber'
 import css from './RatioForm.module.scss'
 
 export default function RatioForm({ ratio, updateRatio }: any) {
   return (
-    <div>
-      <div>
-        <label htmlFor="coffeeRatio">Coffee Ratio</label>
-        <input
-          id="coffeeRatio"
-          type="number"
+    <div className={css.content}>
+      <div className={css.item}>
+        <p>Coffee Ratio:</p>
+        <InputNumber
+          input={{ min: 0 }}
           value={ratio.coffeeRatio}
-          onChange={(ev) => updateRatio('coffeeRatio', ev.target.valueAsNumber)}
+          onChange={(value) => updateRatio('coffeeRatio', value)}
         />
       </div>
 
-      <div>
-        <label htmlFor="sugarRatio">Sugar Ratio</label>
-        <input
-          id="sugarRatio"
-          type="number"
+      <div className={css.item}>
+        <p>Sugar Ratio:</p>
+        <InputNumber
+          input={{ min: 0 }}
           value={ratio.sugarRatio}
-          onChange={(ev) => updateRatio('sugarRatio', ev.target.valueAsNumber)}
+          onChange={(value) => updateRatio('sugarRatio', value)}
         />
       </div>
 
-      <div>
-        <label htmlFor="creamerRatio">Creamer Ratio</label>
-        <input
-          id="creamerRatio"
-          type="number"
+      <div className={css.item}>
+        <p>Creamer Ratio:</p>
+        <InputNumber
+          input={{ min: 0 }}
           value={ratio.creamerRatio}
-          onChange={(ev) =>
-            updateRatio('creamerRatio', ev.target.valueAsNumber)
-          }
+          onChange={(value) => updateRatio('creamerRatio', value)}
         />
       </div>
 
-      <div>
-        <label htmlFor="waterRatio">Water Ratio</label>
-        <input
-          id="waterRatio"
-          type="number"
+      <div className={css.item}>
+        <p>Water Ratio:</p>
+        <InputNumber
+          input={{ min: 0 }}
           value={ratio.waterRatio}
+          onChange={(value) => updateRatio('waterRatio', value)}
+        />
+      </div>
+
+      <div className={$cn(css.item, css.singleLine)}>
+        <p>Super Accurate:</p>
+        <input
+          className={css.checkbox}
+          type="checkbox"
+          value={ratio.superAccurate}
+          defaultChecked={ratio.superAccurate}
           onChange={(ev) =>
-            updateRatio('waterRatio', ev.target.valueAsNumber)
+            updateRatio('superAccurate', Boolean(ev.target.checked))
           }
         />
       </div>

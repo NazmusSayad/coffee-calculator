@@ -1,0 +1,33 @@
+.content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem 5rem;
+  max-width: 115rem;
+  margin-inline: auto;
+
+  @include max(50em) {
+    max-width: 60rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include max(25em) {
+    max-width: 25rem;
+    grid-template-columns: 1fr;
+  }
+}
+
+.item {
+  p {
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .checkbox {
+    margin-left: 1rem;
+  }
+
+  &.singleLine {
+    display: flex;
+    flex-direction: row;
+  }
+}

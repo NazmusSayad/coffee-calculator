@@ -10,7 +10,7 @@ export default function useCoffeeCalculator() {
     sugarRatio: 1,
     creamerRatio: 1,
     waterRatio: 24,
-    superAccurate: false,
+    superAccurate: true,
   })
 
   const calculator = useMemo(() => new CoffeeCalculator(ratio), [ratio])
@@ -19,12 +19,12 @@ export default function useCoffeeCalculator() {
     sugar: 0,
     creamer: 0,
     water: 0,
-    ingredients: 0,
+    ingredients: 15,
     total: 0,
   })
 
   useEffect(() => {
-    const result = calculator.getByTotal(amount.total)
+    const result = calculator.getByIngredients(amount.ingredients)
     setAmount(result)
   }, [ratio])
 
@@ -33,8 +33,11 @@ export default function useCoffeeCalculator() {
     setAmount(result)
   }
 
-  function updateRatio(type: keyof typeof ratio, by: number) {
-    setRatio((prev) => ({ ...prev, [type]: by || 0 }))
+  function updateRatio(type: keyof typeof ratio, by: number | boolean) {
+    setRatio((prev) => ({
+      ...prev,
+      [type]: typeof by === 'number' ? calculator[type](by || 0) : by,
+    }))
   }
 
   return { ratio, amount, updateAmount, updateRatio }
